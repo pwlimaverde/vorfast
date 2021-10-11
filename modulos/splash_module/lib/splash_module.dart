@@ -1,3 +1,3 @@
 library splash_module;
 
-export 'src/module.dart';
+export 'src/splash_module.dart';
