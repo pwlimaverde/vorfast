@@ -4,6 +4,9 @@ library dependency_module;
 export 'package:return_success_or_error/return_success_or_error.dart';
 export 'package:connectivity/connectivity.dart';
 export 'package:get/get.dart';
+export 'package:firebase_core/firebase_core.dart';
+export 'package:firebase_auth/firebase_auth.dart';
+export 'package:firebase_remote_config/firebase_remote_config.dart';
 
 ///Pacakages Internos
 export 'package:checar_coneccao_plugin/checar_coneccao_plugin.dart';

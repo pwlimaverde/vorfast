@@ -1,7 +1,10 @@
 import 'package:dependency_module/dependency_module.dart';
 import 'package:flutter/material.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  RemoteConfig.instance.fetchAndActivate();
   runApp(const MyApp());
 }
 
