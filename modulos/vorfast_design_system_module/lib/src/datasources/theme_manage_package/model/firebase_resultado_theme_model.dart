@@ -6,7 +6,6 @@ class FirebaseResultadoThemeModel extends ResultadoTheme {
   final String newUser;
   final Map newPrimary;
   final Map newSecondary;
-
   FirebaseResultadoThemeModel({
     required this.newUser,
     required this.newPrimary,
@@ -17,6 +16,18 @@ class FirebaseResultadoThemeModel extends ResultadoTheme {
           secondary: newSecondary,
         );
 
+  FirebaseResultadoThemeModel copyWith({
+    String? newUser,
+    Map? newPrimary,
+    Map? newSecondary,
+  }) {
+    return FirebaseResultadoThemeModel(
+      newUser: newUser ?? this.newUser,
+      newPrimary: newPrimary ?? this.newPrimary,
+      newSecondary: newSecondary ?? this.newSecondary,
+    );
+  }
+
   Map<String, dynamic> toMap() {
     return {
       'user': newUser,
@@ -25,20 +36,20 @@ class FirebaseResultadoThemeModel extends ResultadoTheme {
     };
   }
 
-  factory FirebaseResultadoThemeModel.fromMap({
-    required Map<String, dynamic> map,
-  }) {
+  factory FirebaseResultadoThemeModel.fromMap(Map<String, dynamic> map) {
     return FirebaseResultadoThemeModel(
-      newUser: map['user'] ?? "",
-      newPrimary: map['primary'] ?? "",
-      newSecondary: map['secondary'] ?? "",
+      newUser: map['user'],
+      newPrimary: Map.from(map['primary']),
+      newSecondary: Map.from(map['secondary']),
     );
   }
 
   String toJson() => json.encode(toMap());
 
+  factory FirebaseResultadoThemeModel.fromJson(String source) =>
+      FirebaseResultadoThemeModel.fromMap(json.decode(source));
+
   @override
-  String toString() {
-    return "User - $user - Primary - $primary Accent - $secondary";
-  }
+  String toString() =>
+      'FirebaseResultadoThemeModel(newUser: $newUser, newPrimary: $newPrimary, newSecondary: $newSecondary)';
 }

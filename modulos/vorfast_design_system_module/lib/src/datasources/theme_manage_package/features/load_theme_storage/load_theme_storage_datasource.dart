@@ -12,8 +12,8 @@ class LoadThemeStorageDatasource
       {required ParametersReturnResult parameters}) async {
     try {
       if (box.read("theme") != null) {
-        final model = FirebaseResultadoThemeModel.fromMap(
-          map: box.read("tema"),
+        final model = FirebaseResultadoThemeModel.fromJson(
+          box.read("tema"),
         );
         return model;
       } else {

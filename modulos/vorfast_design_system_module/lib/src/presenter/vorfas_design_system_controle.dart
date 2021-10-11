@@ -66,10 +66,18 @@ class VorfastDesignSystemController extends GetxController {
         Get.changeTheme(
           ThemeData(
             colorScheme: ColorScheme.fromSwatch().copyWith(
-              primary: Color.fromRGBO(model.primary["r"], model.primary["g"],
-                  model.primary["b"], 1.0),
-              secondary: Color.fromRGBO(model.secondary["r"],
-                  model.secondary["g"], model.secondary["b"], 1.0),
+              primary: Color.fromRGBO(
+                model.primary["r"],
+                model.primary["g"],
+                model.primary["b"],
+                1.0,
+              ),
+              secondary: Color.fromRGBO(
+                model.secondary["r"],
+                model.secondary["g"],
+                model.secondary["b"],
+                1.0,
+              ),
             ),
           ),
         );

@@ -13,12 +13,14 @@ class FairebaseCarregarTemaDatasource
       final docReference = firestore.collection("settingstheme").doc("theme");
       final doc = await docReference.get();
       FirebaseResultadoThemeModel tema = FirebaseResultadoThemeModel.fromMap(
-        map: doc.data()!,
+        doc.data()!,
       );
       if (tema.user.isNotEmpty) {
         Stream<FirebaseResultadoThemeModel> themeData =
             docReference.snapshots().map((event) {
-          return FirebaseResultadoThemeModel.fromMap(map: event.data()!);
+          return FirebaseResultadoThemeModel.fromMap(
+            event.data()!,
+          );
         });
         return themeData;
       } else {
