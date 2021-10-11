@@ -19,7 +19,13 @@ class SplashPage extends GetView<SplashController> {
                 color: Colors.white,
               ),
             ),
-            Text(RemoteConfig.instance.getString('api_token')),
+            Text(
+              RemoteConfig.instance.getString('api_token'),
+              style: const TextStyle(
+                fontSize: 30.0,
+                color: Colors.white,
+              ),
+            ),
           ],
         ),
       ),
