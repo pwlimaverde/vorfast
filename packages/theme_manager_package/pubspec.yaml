@@ -1,0 +1,25 @@
+name: theme_manager_package
+description: Package de gerenciamento de temas à partir do banco de dados.
+publish_to: 'none'
+version: 1.0.0
+homepage: https://github.com/pwlimaverde/vorfast/tree/master/packages/theme_manager_package
+
+environment:
+  sdk: ">=2.14.3 <3.0.0"
+  flutter: ">=2.5.2"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  dependency_module:
+    path: ../../modulos/dependency_module
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^1.0.0
+  mocktail: 0.0.1-dev.12
+  rxdart: ^0.27.2
+
+
+flutter:

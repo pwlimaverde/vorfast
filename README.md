@@ -1,0 +1,1 @@
+Aplicação direcionada a vendas online.

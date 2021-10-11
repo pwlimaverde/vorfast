@@ -1,0 +1,23 @@
+{
+	"folders": [
+		{
+			"path": "modulos\\dependency_module"
+		},
+		{
+			"path": "modulos\\core_module"
+		},
+		{
+			"path": "modulos\\splash_module"
+		},
+		{
+			"path": "modulos\\vorfast_design_system_module"
+		},
+		{
+			"path": "app_client_vorfast_loja1"
+		},
+		{
+			"path": "packages\\theme_manager_package"
+		},
+	],
+	"settings": {}
+}

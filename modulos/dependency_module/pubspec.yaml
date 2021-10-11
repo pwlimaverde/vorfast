@@ -1,0 +1,38 @@
+name: dependency_module
+description: Modulo responsável pelo gerenciamento das dependencias externas
+publish_to: 'none'
+version: 1.0.0
+homepage: https://github.com/pwlimaverde/vorfast/tree/master/modulos/dependency_module
+
+environment:
+  sdk: ">=2.12.0 <3.0.0"
+  flutter: ">=2.5.2"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  return_success_or_error: ^0.3.0
+  connectivity: ^3.0.6
+  get: ^4.3.8
+
+# Pakages internos
+  checar_coneccao_plugin:
+    path: ../../plugins/checar_coneccao_plugin
+  auth_google_package:
+    path: ../../packages/auth_google_package
+  theme_manager_package:
+    path: ../../packages/theme_manager_package
+# Modulos
+  vorfast_design_system_module:
+    path: ../../modulos/vorfast_design_system_module
+  core_module:
+    path: ../../modulos/core_module
+  splash_module:
+    path: ../../modulos/splash_module
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^1.0.0
+
+flutter:
