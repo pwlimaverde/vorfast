@@ -5,3 +5,4 @@ export 'src/features/load_theme_stream/domain/usecase/load_theme_stream_usecase.
 export 'src/features/load_theme_storage/domain/usecase/load_theme_storage_usecase.dart';
 export 'src/features/update_theme_color/domain/usecase/update_theme_color.dart';
 export 'src/utils/parametros.dart';
+export 'src/utils/erros_carregar_temas.dart';

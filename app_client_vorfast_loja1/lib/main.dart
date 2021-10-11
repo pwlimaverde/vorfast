@@ -17,6 +17,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Vorfast Loja Online',
+      initialBinding: VorfastDesignSystemBinding(),
       getPages: [
         ...SplashModule().routers,
       ],

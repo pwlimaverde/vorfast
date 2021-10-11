@@ -17,7 +17,7 @@
 		},
 		{
 			"path": "packages\\theme_manager_package"
-		},
+		}
 	],
 	"settings": {}
 }
