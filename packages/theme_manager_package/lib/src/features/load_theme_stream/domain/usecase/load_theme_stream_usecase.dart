@@ -1,10 +1,10 @@
 import 'package:dependency_module/dependency_module.dart';
 import '../../../../entities/resultado_theme.dart';
 
-class LoadThemeUsecase extends UseCaseImplement<Stream<ResultadoTheme>> {
+class LoadThemeStreamUsecase extends UseCaseImplement<Stream<ResultadoTheme>> {
   final Datasource<Stream<ResultadoTheme>> datasource;
 
-  LoadThemeUsecase({
+  LoadThemeStreamUsecase({
     required this.datasource,
   });
 

@@ -26,6 +26,13 @@ class SplashPage extends GetView<SplashController> {
                 color: Colors.white,
               ),
             ),
+            Text(
+              Routes.home.caminho,
+              style: const TextStyle(
+                fontSize: 30.0,
+                color: Colors.white,
+              ),
+            ),
           ],
         ),
       ),
