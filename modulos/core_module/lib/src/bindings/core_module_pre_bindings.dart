@@ -11,5 +11,9 @@ class CoreModulePreBindings implements Bindings {
       FirebaseFirestore.instance,
       permanent: true,
     );
+    Get.put<RemoteConfig>(
+      RemoteConfig.instance,
+      permanent: true,
+    );
   }
 }

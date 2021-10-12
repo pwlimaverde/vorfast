@@ -5,8 +5,8 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   await GetStorage.init();
-  CoreModulePreBindings().dependencies();
   RemoteConfig.instance.fetchAndActivate();
+  CoreModulePreBindings().dependencies();
   runApp(const MyApp());
 }
 
