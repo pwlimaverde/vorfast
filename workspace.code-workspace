@@ -10,13 +10,13 @@
 			"path": "modulos\\splash_module"
 		},
 		{
-			"path": "modulos\\vorfast_design_system_module"
-		},
-		{
 			"path": "app_client_vorfast_loja1"
 		},
 		{
-			"path": "packages\\theme_manager_package"
+			"path": "plugins\\checar_coneccao_plugin"
+		},
+		{
+			"path": "packages\\auth_google_package"
 		}
 	],
 	"settings": {}

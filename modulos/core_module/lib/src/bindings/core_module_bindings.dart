@@ -5,8 +5,16 @@ import '../core_modulo_controller.dart';
 class CoreModuleBindings implements Bindings {
   @override
   void dependencies() {
+    Get.put<Connectivity>(Connectivity(), permanent: true);
     Get.put<CoreModuleController>(
-      CoreModuleController(),
+      CoreModuleController(
+        onconnect: Get.find(),
+        checarConeccaoUsecase: ChecarConeccaoUsecase(
+          datasource: ConnectivityDatasource(
+            connectivity: Get.find(),
+          ),
+        ),
+      ),
       permanent: true,
     );
   }

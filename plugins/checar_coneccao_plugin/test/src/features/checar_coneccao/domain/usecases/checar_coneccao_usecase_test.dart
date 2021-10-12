@@ -6,19 +6,21 @@ import 'package:mocktail/mocktail.dart';
 class DatasourceMock extends Mock implements Datasource<bool> {}
 
 void main() {
-  late UseCaseImplement<bool> checarConeccaoUseCase;
   late Datasource<bool> datasource;
+  late UseCaseImplement<bool> usecase;
 
   setUp(() {
     datasource = DatasourceMock();
-    checarConeccaoUseCase = ChecarConeccaoUsecase<bool>(datasource: datasource);
+    usecase = ChecarConeccaoUsecase(
+      datasource: datasource,
+    );
   });
 
   test('Deve retornar um sucesso com true', () async {
     when(datasource).calls(#call).thenAnswer(
           (_) => Future.value(true),
         );
-    final result = await checarConeccaoUseCase(
+    final result = await usecase(
       parameters: NoParams(
         error: ErrorConeccao(
           message: "Erro de conexão",
@@ -39,7 +41,7 @@ void main() {
     when(datasource).calls(#call).thenAnswer(
           (_) => Future.value(null),
         );
-    final result = await checarConeccaoUseCase(
+    final result = await usecase(
       parameters: NoParams(
         error: ErrorConeccao(
           message: "Erro de conexão",
@@ -59,7 +61,7 @@ void main() {
       'Deve retornar um ErrorConeccao com Erro ao recuperar informação de conexão Cod.01-1',
       () async {
     when(datasource).calls(#call).thenThrow(Exception());
-    final result = await checarConeccaoUseCase(
+    final result = await usecase(
       parameters: NoParams(
         error: ErrorConeccao(
           message: "Erro de conexão",

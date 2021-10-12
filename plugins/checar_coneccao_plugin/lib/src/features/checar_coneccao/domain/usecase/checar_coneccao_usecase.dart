@@ -1,6 +1,6 @@
 import 'package:dependency_module/dependency_module.dart';
 
-class ChecarConeccaoUsecase<bool> extends UseCaseImplement<bool> {
+class ChecarConeccaoUsecase extends UseCaseImplement<bool> {
   final Datasource<bool> datasource;
 
   ChecarConeccaoUsecase({
