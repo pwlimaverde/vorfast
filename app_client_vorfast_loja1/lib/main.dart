@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await GetStorage.init();
-  ThemeSetting().carregarTemaStorage();
   await Firebase.initializeApp();
   RemoteConfig.instance.fetchAndActivate();
   runApp(const MyApp());
@@ -22,7 +21,7 @@ class MyApp extends StatelessWidget {
       getPages: [
         ...SplashModule().routers,
       ],
-      theme: ThemeSetting().themeData,
+      theme: ThemeSettings().themeData,
     );
   }
 }
