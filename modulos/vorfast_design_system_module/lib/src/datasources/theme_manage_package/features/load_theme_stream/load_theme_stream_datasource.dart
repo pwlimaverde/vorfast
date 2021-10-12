@@ -10,25 +10,15 @@ class FairebaseCarregarTemaDatasource
   Future<Stream<FirebaseResultadoThemeModel>> call(
       {required ParametersReturnResult parameters}) async {
     try {
-      final docReference = firestore.collection("settingstheme").doc("theme");
-      final doc = await docReference.get();
-      final FirebaseResultadoThemeModel tema =
-          FirebaseResultadoThemeModel.fromMap(
-        doc.data()!,
-      );
-      if (tema.user.isNotEmpty) {
-        Stream<FirebaseResultadoThemeModel> themeData =
-            docReference.snapshots().map((event) {
+      final themeData =
+          firestore.collection("settingstheme").doc("theme").snapshots().map(
+        (event) {
           return FirebaseResultadoThemeModel.fromMap(
             event.data()!,
           );
-        });
-        return themeData;
-      } else {
-        throw ErroCarregarTemas(
-          message: "Falha ao carregar os dados: Tema não carregado - Cod.03-1",
-        );
-      }
+        },
+      );
+      return themeData;
     } catch (e) {
       throw ErroCarregarTemas(
         message: "Falha ao carregar os dados: Tema não carregado - Cod.03-1",

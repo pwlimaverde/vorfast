@@ -7,6 +7,7 @@ class SplashPage extends GetView<SplashController> {
 
   @override
   Widget build(BuildContext context) {
+    final RemoteConfig fireTest = Get.find();
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.primary,
       body: Center(
@@ -20,7 +21,7 @@ class SplashPage extends GetView<SplashController> {
               ),
             ),
             Text(
-              RemoteConfig.instance.getString('api_token'),
+              fireTest.getString('api_token'),
               style: const TextStyle(
                 fontSize: 30.0,
                 color: Colors.white,
