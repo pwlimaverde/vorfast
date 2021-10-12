@@ -14,9 +14,6 @@
 		},
 		{
 			"path": "plugins\\checar_coneccao_plugin"
-		},
-		{
-			"path": "packages\\auth_google_package"
 		}
 	],
 	"settings": {}

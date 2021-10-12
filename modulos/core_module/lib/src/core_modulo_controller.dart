@@ -1,4 +1,5 @@
 import 'package:dependency_module/dependency_module.dart';
+import 'package:flutter/material.dart';
 
 class CoreModuleController extends GetxController {
   final ChecarConeccaoUsecase checarConeccaoUsecase;
@@ -12,38 +13,42 @@ class CoreModuleController extends GetxController {
   @override
   void onInit() {
     onconnect.onConnectivityChanged.listen((event) {
-      // _getCon();
+      _getCon();
     });
     super.onInit();
   }
 
-  // //Controller de Conexão
-  // final _estaConectado = false.obs;
-  // bool get estaConectado => this._estaConectado.value;
-  // set estaConectado(value) => this._estaConectado.value = value;
+  //Controller de Conexão
+  final _estaConectado = false.obs;
+  bool get estaConectado => _estaConectado.value;
+  set estaConectado(value) => _estaConectado.value = value;
 
-  // void _getCon() async {
-  //   ReturnSuccessOrError<bool> testeConexao =
-  //       await checarConeccaoPresenter.consultaConectividade();
-  //   if (testeConexao is SuccessReturn<bool>) {
-  //     this.estaConectado = testeConexao.result;
-  //   } else {
-  //     this.estaConectado = false;
-  //   }
+  void _getCon() async {
+    ReturnSuccessOrError<bool> testeConexao = await checarConeccaoUsecase(
+        parameters: NoParams(
+            error: ErrorConeccao(
+              message: "Não foi possível verificar a conecção da rede!",
+            ),
+            showRuntimeMilliseconds: true,
+            nameFeature: "Checar Conecção"));
+    if (testeConexao is SuccessReturn<bool>) {
+      estaConectado = testeConexao.result;
+    } else {
+      estaConectado = false;
+    }
+    _mostrarConeccao();
+  }
 
-  //   _mostrarConeccao();
-  // }
-
-  // //Conexão Funções Internas
-  // //Snackbar falha de conexão
-  // void _mostrarConeccao() {
-  //   if (estaConectado == false) {
-  //     Get.snackbar(
-  //       'Desculpe',
-  //       'Não foi possível estabelecer a conexão',
-  //       icon: Icon(FontAwesomeIcons.meh),
-  //       snackPosition: SnackPosition.BOTTOM,
-  //     );
-  //   }
-  // }
+  //Conexão Funções Internas
+  //Snackbar falha de conexão
+  void _mostrarConeccao() {
+    if (estaConectado == false) {
+      Get.snackbar(
+        'Desculpe',
+        'Não foi possível estabelecer a conexão',
+        icon: const Icon(FontAwesomeIcons.meh),
+        snackPosition: SnackPosition.BOTTOM,
+      );
+    }
+  }
 }
