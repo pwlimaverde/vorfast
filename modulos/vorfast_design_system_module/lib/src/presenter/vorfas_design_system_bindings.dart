@@ -9,7 +9,7 @@ class VorfastDesignSystemBinding implements Bindings {
       VorfastDesignSystemController(
         loadThemeStreamUsecase: LoadThemeStreamUsecase(
             datasource: FairebaseCarregarTemaDatasource(
-          firestore: FirebaseFirestore.instance,
+          firestore: Get.find(),
         )),
       ),
       permanent: true,

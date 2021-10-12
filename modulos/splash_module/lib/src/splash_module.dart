@@ -8,7 +8,10 @@ class SplashModule extends Module {
     GetPage(
       name: "/",
       page: () => const SplashPage(),
-      binding: SplashBiding(),
+      bindings: [
+        VorfastDesignSystemBinding(),
+        SplashBiding(),
+      ],
     ),
   ];
 }

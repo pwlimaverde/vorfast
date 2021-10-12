@@ -4,6 +4,7 @@ import '../datasources/theme_manage_package/model/firebase_resultado_theme_model
 
 class VorfastDesignSystemController extends GetxController {
   final LoadThemeStreamUsecase loadThemeStreamUsecase;
+  final GetStorage _box = Get.find();
 
   VorfastDesignSystemController({
     required this.loadThemeStreamUsecase,
@@ -11,12 +12,16 @@ class VorfastDesignSystemController extends GetxController {
 
   @override
   void onInit() {
-    _carregarSettingsTheme();
-
-    fireTheme.listen((event) {
+    _fireThemeStream.listen((event) {
       _apiThemeApp(model: event);
     });
     super.onInit();
+  }
+
+  @override
+  void onReady() {
+    _carregarSettingsTheme();
+    super.onReady();
   }
 
   final _loadCompletoDoTema = false.obs;
@@ -28,9 +33,8 @@ class VorfastDesignSystemController extends GetxController {
     newPrimary: {},
     newUser: '',
   ).obs;
-  get fireTheme => _fireTheme;
-  FirebaseResultadoThemeModel get fireThemeValue => _fireTheme.value;
-  set fireTheme(value) => _fireTheme.bindStream(value);
+  get _fireThemeStream => _fireTheme;
+  set _fireThemeStream(value) => _fireTheme.bindStream(value);
 
   void _carregarSettingsTheme() async {
     final result = await loadThemeStreamUsecase(
@@ -45,13 +49,12 @@ class VorfastDesignSystemController extends GetxController {
 
     if (result is SuccessReturn<Stream<ResultadoTheme>>) {
       final theme = result.result;
-      fireTheme = theme;
+      _fireThemeStream = theme;
     }
   }
 
   void _apiThemeApp({required FirebaseResultadoThemeModel model}) {
-    final box = GetStorage();
-    box.write("tema", model.toJson());
+    _box.write("tema", model.toJson());
     Get.changeTheme(
       ThemeData(
         colorScheme: ColorScheme.fromSwatch().copyWith(

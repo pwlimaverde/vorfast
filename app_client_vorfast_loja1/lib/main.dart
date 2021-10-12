@@ -3,8 +3,9 @@ import 'package:flutter/material.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await GetStorage.init();
   await Firebase.initializeApp();
+  await GetStorage.init();
+  CoreModulePreBindings().dependencies();
   RemoteConfig.instance.fetchAndActivate();
   runApp(const MyApp());
 }
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Vorfast Loja Online',
-      initialBinding: VorfastDesignSystemBinding(),
+      initialBinding: CoreModuleBindings(),
       getPages: [
         ...SplashModule().routers,
       ],

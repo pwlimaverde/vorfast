@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'datasources/theme_manage_package/model/firebase_resultado_theme_model.dart';
 
 class ThemeSettings {
-  final _box = GetStorage();
+  final _box = Get.find<GetStorage>();
   get _model => _box.read("tema") != null
       ? FirebaseResultadoThemeModel.fromJson(
           GetStorage().read("tema"),
