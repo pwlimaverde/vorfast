@@ -3,7 +3,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:theme_manager_package/src/entities/resultado_theme.dart';
-import 'package:theme_manager_package/src/features/load_theme/domain/usecase/load_theme_usecase.dart';
+import 'package:theme_manager_package/src/features/load_theme_stream/domain/usecase/load_theme_stream_usecase.dart';
 import 'package:theme_manager_package/src/utils/erros_carregar_temas.dart';
 
 class FairebaseThemeDatasourceMock extends Mock
@@ -15,7 +15,7 @@ void main() {
 
   setUp(() {
     datasource = FairebaseThemeDatasourceMock();
-    usecase = LoadThemeUsecase(datasource: datasource);
+    usecase = LoadThemeStreamUsecase(datasource: datasource);
   });
 
   test('Deve retornar um sucesso com true', () async {
