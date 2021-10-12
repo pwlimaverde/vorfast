@@ -12,7 +12,8 @@ class FairebaseCarregarTemaDatasource
     try {
       final docReference = firestore.collection("settingstheme").doc("theme");
       final doc = await docReference.get();
-      FirebaseResultadoThemeModel tema = FirebaseResultadoThemeModel.fromMap(
+      final FirebaseResultadoThemeModel tema =
+          FirebaseResultadoThemeModel.fromMap(
         doc.data()!,
       );
       if (tema.user.isNotEmpty) {

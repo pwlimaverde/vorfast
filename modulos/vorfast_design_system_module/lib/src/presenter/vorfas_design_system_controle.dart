@@ -6,19 +6,19 @@ class VorfastDesignSystemController extends GetxController {
   final LoadThemeStorageUsecase loadThemeStorageUsecase;
   final LoadThemeStreamUsecase loadThemeStreamUsecase;
 
-  VorfastDesignSystemController(
-      {required this.loadThemeStorageUsecase,
-      required this.loadThemeStreamUsecase});
+  VorfastDesignSystemController({
+    required this.loadThemeStorageUsecase,
+    required this.loadThemeStreamUsecase,
+  });
 
   @override
   void onInit() {
-    super.onInit();
-    _loadThemeStorage();
     _carregarSettingsTheme();
 
     fireTheme.listen((event) {
       _apiThemeApp(model: event);
     });
+    super.onInit();
   }
 
   final _loadCompletoDoTema = false.obs;
@@ -44,13 +44,14 @@ class VorfastDesignSystemController extends GetxController {
         nameFeature: "loadThemeStream",
       ),
     );
+
     if (result is SuccessReturn<Stream<ResultadoTheme>>) {
       final theme = result.result;
       fireTheme = theme;
     }
   }
 
-  void _loadThemeStorage() async {
+  void loadThemeStorage() async {
     final result = await loadThemeStorageUsecase(
       parameters: NoParams(
         error: ErroCarregarTemas(
