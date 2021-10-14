@@ -14,3 +14,6 @@ Implantação do package theme_manage_package
 ## [0.0.0-alpha.4] - 12/10/2021.
 1 - Configuração geral dos bindings
 2 - Configuração do carregamento dos dados do theme
+
+## [0.0.0-alpha._] - 13/10/2021.
+1 - Configuração de checagem de conecção.
