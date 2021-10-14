@@ -9,11 +9,6 @@ class CoreModuleBindings implements Bindings {
     Get.put<CoreModuleController>(
       CoreModuleController(
         onconnect: Get.find(),
-        checarConeccaoUsecase: ChecarConeccaoUsecase(
-          datasource: ConnectivityDatasource(
-            connectivity: Get.find(),
-          ),
-        ),
       ),
       permanent: true,
     );

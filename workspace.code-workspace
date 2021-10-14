@@ -11,9 +11,6 @@
 		},
 		{
 			"path": "app_client_vorfast_loja1"
-		},
-		{
-			"path": "plugins\\checar_coneccao_plugin"
 		}
 	],
 	"settings": {}
